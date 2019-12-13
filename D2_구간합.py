@@ -37,6 +37,35 @@ import sys
 '''
 sys.stdin = open("구간합.txt", "r")
 
+def find_optimal_sol(N,M,arr):
+    possible_iter = N - M
+
+    summ = 0
+    # large = 0
+    # small = 0
+
+    lst = []
+
+    for i in range(possible_iter + 1):
+        # range 
+        summ = 0
+        for j in range(M):
+            summ += arr[i+j]
+        
+        lst.append(summ)
+        # 잠시 보관
+
+    lst = sorted(lst)
+    large = lst[-1]
+    small = lst[0]
+
+    return large - small 
+       
+
+
+
+
+
 T = int(input())
 # 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 for test_case in range(1, T + 1):
@@ -45,30 +74,18 @@ for test_case in range(1, T + 1):
     (N, M) = map(int,input().split())
 
     arr = list(map(int, input().split()))
-    print(N)
-    print(M)
-    #print(arr)
 
-    sort_ = sorted(arr)
-
-    large = 0
-    small = 0
-
-    for i in range(-1, -(M+1), -1):
-        large += sort_[i]
-    
-    for i in range(M):
-        small += sort_[i]
-
-    diff = large - small
+    diff = find_optimal_sol(N,M,arr)
 
     print("#{} {}".format(test_case, diff))
 
-    large = 0
-    small = 0
 
-    print(sort_)
-    print(diff)
+    #print(N)
+    #print(M)
+    #print(arr)
+
+    #print(sort_)
+    #print(diff)
 
 
     '''
