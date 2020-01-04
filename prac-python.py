@@ -55,9 +55,13 @@ arr = [3,6,7,1,5,4]
 n = len(arr) # n 
 
 for i in range(1<<n): # 1 << n subset numbers
+    list1 = []
+
     for j in range(n):
         if i & (1<<j):
-            print(arr[j], end=",")
+            list1.append(arr[j])
+            print(list1)
+            #print(arr[j], end=",")
     print()
 
 ### binary search
@@ -67,33 +71,33 @@ for i in range(1<<n): # 1 << n subset numbers
 # 검색 범위 시작점 종료점 이용하여 검색을 반복 수행
 # 이진 검색 자료에 삽입과 삭제가 발생 리스트 상태를 항상 정렬 상태로 유지하는 추가 작업 필요
 
-def binarySearch(a, key):
-    start = 0
-    end = len(a) - 1
+# def binarySearch(a, key):
+#     start = 0
+#     end = len(a) - 1
 
-    while start <= end:
-        middle = start + (end - start) // 2
-        if key  == a[middle]:
-            return # True 검색 성공
-        elif key < a[middle]:
-            end = middle - 1
-        else:
-            start = middle + 1
+#     while start <= end:
+#         middle = start + (end - start) // 2
+#         if key  == a[middle]:
+#             return # True 검색 성공
+#         elif key < a[middle]:
+#             end = middle - 1
+#         else:
+#             start = middle + 1
     
-    return False # 검색 실패
+#     return False # 검색 실패
 
-### selection sorting
-# 주어진 자료들 가장 작은 값 원소부터 차례대로 선택 위치를 교환 방식
-# 셀렉션 알고맂ㅁ 전체 자료에 적용 
+# ### selection sorting
+# # 주어진 자료들 가장 작은 값 원소부터 차례대로 선택 위치를 교환 방식
+# # 셀렉션 알고맂ㅁ 전체 자료에 적용 
 
-def selectionSort(a):
-    for i in range(0, len(a)-1):
-        min = i
+# def selectionSort(a):
+#     for i in range(0, len(a)-1):
+#         min = i
 
-        for j in range(i+1, len(a)):
-            if a[min] > a[j]:
-                min = j
-        a[i], a[min] = a[min], a[i]
+#         for j in range(i+1, len(a)):
+#             if a[min] > a[j]:
+#                 min = j
+#         a[i], a[min] = a[min], a[i]
 
 
 

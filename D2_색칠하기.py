@@ -1,6 +1,7 @@
 #def
 
 import sys
+from pprint import pprint
 
 
 '''
@@ -22,6 +23,8 @@ def draw_color(N, dic):
     panel = [[0] * 10 for _ in range(10)]
 
     for i in range(N):
+        # s = str(i)
+
         arr = dic[i]
 
         r1 = arr[0]
@@ -32,16 +35,24 @@ def draw_color(N, dic):
 
         color = arr[4]
         # 숫자 1 또는 2 를 넣어서 마치 색 칠하듯 시발 
-        for i in  (r1, r2 + 1):
-            for j in (c1, c2 + 1):
+        for i in  range(r1, r2 + 1):
+            for j in range(c1, c2 + 1):
                 
                 if panel[i][j] == 0 or panel[i][j] == color:
                     panel[i][j] = color
-                else:
+                elif not (panel[i][j] >= 3):
                     panel[i][j] = panel[i][j] + color
+    
+    return panel
 
+def count_purple(panel):
+    count = 0
 
-
+    for i in range(len(panel)):
+        for j in range(len(panel[i])):
+            if panel[i][j] == 3:
+                count += 1
+    return count
 
 T = int(input())
 # 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
@@ -49,13 +60,49 @@ for test_case in range(1, T + 1):
     N = int(input())
     dic = {}
 
+    panel = [[0] * 10 for _ in range(10)]
+
     for i in range(N):
         arr = list(map(int, input().split()))
-    
+
         dic[i] = arr
 
+        r1 = arr[0]
+        c1 = arr[1]
 
-    print(dic) 
+        r2 = arr[2]
+        c2 = arr[3]
+        color = arr[4]
+
+        #if color == 
+        # 숫자 1 또는 2 를 넣어서 마치 색 칠하듯 시발 
+        for i in  range(r1, r2 + 1):
+            for j in range(c1, c2 + 1):
+                
+                if panel[i][j] == 0 or panel[i][j] == color:
+                    panel[i][j] = color
+                elif not (panel[i][j] >= 3):
+                    panel[i][j] = panel[i][j] + color
+    
+    count = 0
+
+    for i in range(len(panel)):
+        for j in range(len(panel[i])):
+            if panel[i][j] == 3:
+                count += 1
+
+    #panel = draw_color(N, dic)
+
+    # count = count_purple(panel)
+
+    #pprint()
+
+    print("#{} {}".format(test_case, count))
+
+
+
+
+    #print(dic) 
 
         
 

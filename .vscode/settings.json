@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "c:\\CodingPractice\\SW Expert\\venv\\Scripts\\python.exe",
+    "python.pythonPath": "c:\\SW_Expert\\SW_Expert_Academy\\venv\\Scripts\\python.exe",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
 }
