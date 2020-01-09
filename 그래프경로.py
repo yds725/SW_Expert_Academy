@@ -1,3 +1,6 @@
+# 기본 제공코드는 임의 수정해도 관계 없습니다. 단, 입출력 포맷 주의
+# 아래 표준 입출력 예제 필요시 참고하세요.
+
 # 표준 입력 예제
 '''
 a = int(input())                        정수형 변수 1개 입력 받는 예제
@@ -32,8 +35,9 @@ import sys
 
       단, 채점을 위해 코드를 제출하실 때에는 반드시 아래 구문을 지우거나 주석 처리 하셔야 합니다.
 '''
-sys.stdin = open("괄호검사.txt", "r")
+sys.stdin = open("그래프경로.txt", "r")
 
+# 
 class Stack():
     def __init__(self):
         self.stack = []
@@ -53,49 +57,41 @@ class Stack():
         if len(self.stack) == 0:
             return True
         return False
-    
-def stacked(strings):
-    # stack_list = []
 
-    # 초기화
-    st = Stack()
+def DFS(v):
+    print(hi)    
 
-    for c in strings:
-        if c == '(' or c == '{' :
-            st.push(c)
-        
-        if c == ')' or c == '}' :
 
-            if st.isEmpty():
-                return 0
-            else:
-                br = st.pop()
-                dec1 = ord(br)
-
-                if (dec1 + 1) == ord(c) or (dec1 + 2) == ord(c):
-                    pass
-                else:
-                    return 0
-        
-    # if stack is not empty 0을 리턴하라
-    if not st.isEmpty():
-        return 0
-    else:
-        return 1
 
 T = int(input())
 # 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 for test_case in range(1, T + 1):
-    #print(test_case)
-    st = input()
+    V, E = map(int, input().split())
 
-    print("#{} {}".format(test_case, stacked(st)))
-    #print(st)
+    dic1 = {}
 
-    #s = Stack()
-    #s.push('(')
+    # Hello py
 
-    #print(s.pop())
+    for _ in range(E):
+        
+        s, e = input().split()
+
+        if s not in dic1:
+            dic1[s] = []
+        
+        dic1[s].append(e)
+
+
+        print(dic1)
+
+
+
+        #dic1
+        #print(n)
+
+    #print(V)
+    #print(E)
+
 
 
     # ///////////////////////////////////////////////////////////////////////////////////
