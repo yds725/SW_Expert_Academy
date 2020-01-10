@@ -58,11 +58,68 @@ class Stack():
             return True
         return False
 
-def DFS(v):
-    print(hi)    
+    def extend(self, data):
+        self.stack.extend(data)
 
 
+def DFS(start, end, nodes, E):
+    #global result
+    
+    # visited 초기화
+    # visited = [False] * E
+    
+    visited = []
 
+    # 스택 초기화 
+    st = Stack()
+
+    # stack push
+    st.push(start)
+
+    while not st.isEmpty():
+        w = st.pop()
+    # start 방문
+        #visited[start] = True
+    #st.push(start)
+        # w = st.pop()
+        visited.append(w)
+
+        for v in nodes[w]:
+            if v not in st.stack + visited:
+                st.push(v)
+                
+    return visited
+    
+    #return visited
+
+    
+    # # 
+    # # for i in 
+
+    # do{
+    #     neighbors = nodes[start]
+
+    #     for neigh in neighbors:
+            
+
+
+    #     if 
+
+    #     #neighbors = nodes[start] 
+    #     w = neighbors[0] 
+
+    #     # 방문안한 w 찾기 인접 정점중
+    #     if visited[w] == False:
+    #         st.push(start)
+
+    #     while(w){
+
+    #     }
+
+
+    # }while()
+
+    #print(hi)    
 T = int(input())
 # 여러개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 for test_case in range(1, T + 1):
@@ -72,17 +129,28 @@ for test_case in range(1, T + 1):
 
     # Hello py
 
+    #visited = 
+
     for _ in range(E):
         
-        s, e = input().split()
+        s, e = map(int,input().split())
 
         if s not in dic1:
             dic1[s] = []
         
         dic1[s].append(e)
+    
+    start, end = map(int,input().split())
 
+    # print(start)
+    # print(end)
+    # print(dic1)
+    
+    print(DFS(start, end, dic1, E))
 
-        print(dic1)
+    
+
+       
 
 
 
